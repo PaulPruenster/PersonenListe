@@ -1,0 +1,32 @@
+<h1>Personenliste</h1>
+
+<!-- {{personen | json}} -->
+
+<form class="example-form">
+  <mat-form-field id="nameF">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" name="name" [(ngModel)]="currentPerson.name" required>
+  </mat-form-field>
+
+  <mat-form-field id="surNameF">
+    <mat-label>Surname</mat-label>
+    <input matInput type="text" name="surname" [(ngModel)]="currentPerson.surname" required>
+  </mat-form-field>
+
+  <mat-form-field id="ageF">
+    <mat-label>Age</mat-label>
+    <input matInput type="number" min="0" name="age" [(ngModel)]="currentPerson.age" required>
+  </mat-form-field>
+
+  <button type="submit" (click)="addPerson()" mat-raised-button color="accent">{{editmode ? 'Save' : 'Add'}}</button>
+</form>
+
+<!-- {{currentPerson | json}} -->
+
+<table align="center">
+  <tr *ngFor="let p of personen | keyvalue">
+    <td>{{p.value.name}} {{p.value.surname}}</td>
+    <td><button (click)="editPerson(p.key)" mat-stroked-button color="accent">Edit</button></td>
+    <td><button (click)="removePerson(p.key)" mat-stroked-button color="accent" *ngIf="!editmode">Delete</button></td>
+  </tr>
+</table>
