@@ -1,13 +1,16 @@
 export class Person {
     name: string;
     surname: string;
-    age: string;
+    gender: string;
+    birthday: Date | string;
+    birthplace: string;
+    birthplaceIt: string;
+    location: string;
+    tel: number;
+    mail: string;
+    address: string;
+    plz: number;
+    place: string;
 
-    constructor() { }
-
-    valid() {
-        if (this.name && this.surname && this.age)
-            return true;
-        return false;
-    }
+    idcard = {}; // nr, country, type
 }
